@@ -1,0 +1,26 @@
+<div class="container">
+
+  <h1>HELLO Restuarants</h1>
+  <div class="row">
+    <ul>
+      <%  @restaurants.each do |restaurant|%>
+      <li>
+       <%= link_to restaurant.name, restaurant_path(restaurant) %>
+       ||
+       <%= link_to edit_restaurant_path(restaurant) do%>
+       <i class="far fa-edit"></i>
+
+       <% end %>
+       ||
+
+       <%= link_to restaurant_path(restaurant),      method: :delete,
+       data: { confirm: "Are you sure?" } do %>
+       <i class="far fa-trash-alt"></i>
+       <% end %>
+     </li>
+     <% end %>
+   </ul>
+ </div>
+ <h1> <%= link_to 'new', new_restaurant_path %></h1>
+
+</div>
