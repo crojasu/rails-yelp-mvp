@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
    def new
     # we need @restaurant in our `simple_form_for`
-    @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def create
@@ -10,12 +10,12 @@ class ReviewsController < ApplicationController
     # we need `restaurant_id` to asssociate review with corresponding restaurant
     @review.restaurant = Restaurant.find(params[:restaurant_id])
     @review.save
+    redirect_to restaurant_path(@review.restaurant)
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:review).permit(:rating, :content)
   end
-end
 end

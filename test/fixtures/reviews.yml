@@ -2,8 +2,10 @@
 
 one:
   content: MyText
-  rating: MyString
+  rating: 1
+  restaurant: one
 
 two:
   content: MyText
-  rating: MyString
+  rating: 1
+  restaurant: two

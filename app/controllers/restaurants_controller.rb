@@ -17,6 +17,7 @@ before_action :set_restaurant, only: [:edit, :show, :update, :destroy]
   end
 
   def show
+    @review = Review.new
   end
 
   def edit
