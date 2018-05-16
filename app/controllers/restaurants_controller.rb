@@ -11,9 +11,12 @@ before_action :set_restaurant, only: [:edit, :show, :update, :destroy]
   end
 
   def create
-    @restaurant= Restaurant.new(restaurant_params)
-    @restaurant.save
-    redirect_to restaurants_path
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new
+    end
   end
 
   def show
